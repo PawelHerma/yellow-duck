@@ -7,31 +7,34 @@ dotenv.config();
 const router = express.Router();
 
 const config = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(config);
+
 router.route('/').get((req,res)=>{
   res.status(200).json({message:"Routes"})
   })
 router.post('/chat', async (req, res) => {
   try {
-    const prompt = req.body;
-    
+    const {message } = req.body;
+
     const response = await openai.createCompletion({
-      model: "text-ada-001",
-      prompt,
-      temperature: 0.9,
+      model: "text-davinci-003",
+      prompt: message,
+      temperature: 0,
       max_tokens: 150,
-      top_p: 1,
-      frequency_penalty: 0.0,
-      presence_penalty: 0.6,
-      stop: [" Human:", " AI:"],
+      top_p: 1.0,
+      frequency_penalty: 0.5,
+      presence_penalty: 0.0,
+      stop: ["You:"],
     });
 
-    const answer = response.data.data[0].text.trim();
+    console.log(response);
+    const answer = response.data.choices[0];
+    console.log(answer)
 
-    res.status(200).json({ message: answer });
+    res.status(200).json({ message: answer.text });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Something went wrong', error });

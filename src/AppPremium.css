@@ -46,13 +46,13 @@ body {
   justify-content: center;
  
   background-image:url('C:\\Users\\adria\\Dokumenty\\GitHub\\yellow-duck\\src\\Project_Name.jpg');
-  background-size: 200px;
+  background-size: 2000px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .chat {
-  display: flex;
+  display: fixed;
   flex-direction: column;
   justify-content: flex-end;
   height: calc(100vh - 40px);
