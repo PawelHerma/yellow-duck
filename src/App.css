@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(250, 221, 88);
 }
 
 .App-link {
@@ -35,4 +35,74 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background: linear-gradient(to top, #f5d923, #fff);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9JKv4UaA0Uh0eblDhb2nfK4GY4sfv8W1bWRpxpDUT6HEuTcNUXdc9DBGi8T1v_DZJ_T8&usqp=CAU"); /* replace with your own image */
+  background-size: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: calc(100vh - 40px);
+  padding: 20px;
+  border-color: #282c34;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  border-radius: 20px;
+  max-width: 80%;
+  padding: 10px;
+  word-wrap: break-word;
+  border-color: #282c34;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #f5a623;
+  color: white;
+}
+
+.bot {
+  align-self: flex-start;
+  background-color: #e7e6e6;
+  color: black;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-color: #282c34;
+}
+
+input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffb700;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
