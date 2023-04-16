@@ -16,11 +16,11 @@ router.route('/').get((req,res)=>{
   })
 router.post('/chat', async (req, res) => {
   try {
-    const message = req.body;
+    const prompt = req.body;
     
     const response = await openai.createCompletion({
       model: "text-ada-001",
-      prompt: "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I'd like to cancel my subscription.\nAI:",
+      prompt,
       temperature: 0.9,
       max_tokens: 150,
       top_p: 1,
@@ -29,7 +29,7 @@ router.post('/chat', async (req, res) => {
       stop: [" Human:", " AI:"],
     });
 
-    const answer = response.data.choices[0].text.trim();
+    const answer = response.data.data[0].text.trim();
 
     res.status(200).json({ message: answer });
   } catch (error) {
